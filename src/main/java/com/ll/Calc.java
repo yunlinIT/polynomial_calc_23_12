@@ -2,8 +2,8 @@ package com.ll;
 
 public class Calc {
   public static int run(String exp) {
-    boolean needToMultiply = exp.contains("*");
-    boolean needToPlus = exp.contains("+");
+    boolean needToMultiply = exp.contains(" * ");
+    boolean needToPlus = exp.contains(" + ") || exp.contains(" - ");
 
     boolean needToCompound = needToMultiply && needToPlus;
 
