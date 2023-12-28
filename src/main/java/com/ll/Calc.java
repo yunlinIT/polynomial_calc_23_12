@@ -42,9 +42,17 @@ public class Calc {
   }
 
   private static String stripOuterBracket(String exp) {
-    if (exp.charAt(0) == '(' && exp.charAt(exp.length() - 1) == ')') {
-      exp = exp.substring(1, exp.length() - 1);
+    int outerBracketCount = 0;
+
+    while (exp.charAt(outerBracketCount) == '(' && exp.charAt(exp.length() - 1 - outerBracketCount) == ')') {
+      outerBracketCount++;
     }
-    return exp;
+
+    if (outerBracketCount == 0) {
+      return exp;
+    }
+
+    ;
+    return exp.substring(outerBracketCount, exp.length() - outerBracketCount);
   }
 }
