@@ -1,9 +1,20 @@
-package com.ll;
+package com.ll; // 패키지
 
 public class Calc {
+
+  public static boolean recursionDebug = true; // 내가 디버그 모드를 켜겠다 할때는 true로 변경
+
+  public static int runCallCount = 0;
+
   public static int run(String exp) { // 10 + (10 + 5)
+    runCallCount++;
+
     exp = exp.trim();
     exp = stripOuterBracket(exp);
+
+    if (recursionDebug) {
+      System.out.printf("exp(%d) : %s\n", runCallCount, exp);
+    }
 
     // 연산기호가 없으면 바로 리턴
     if (!exp.contains(" ")) return Integer.parseInt(exp);
