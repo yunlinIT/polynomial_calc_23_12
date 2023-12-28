@@ -3,11 +3,19 @@ package com.ll;
 public class Calc {
   public static int run(String exp) {
 
-    String[] bits = exp.split(" \\+ ");
+
+    String[] bits = exp.split(" ");
 
     int a = Integer.parseInt(bits[0]);
-    int b = Integer.parseInt(bits[1]);
+    int c = Integer.parseInt(bits[2]);
 
-    return a + b;
+
+    if (bits[1].equals("+")) {
+      return a + c;
+    } else if (bits[1].equals("-")) {
+      return a - c;
+    } else {
+      return 0;
+    }
   }
 }
